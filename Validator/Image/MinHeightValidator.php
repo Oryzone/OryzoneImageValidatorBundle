@@ -5,7 +5,7 @@ namespace Oryzone\Bundle\ImageValidatorBundle\Validator\Image;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
-class MinWidthValidator extends ImageValidator
+class MinHeightValidator extends ImageValidator
 {
 
     public function isValid($value, Constraint $constraint)
@@ -14,18 +14,18 @@ class MinWidthValidator extends ImageValidator
             return false;
 
         $info = getimagesize($this->imagePath);
-        if(!$info || !isset($info[0]))
+        if(!$info || !isset($info[1]))
         {
             $this->setMessage($constraint->cannotReadImagePropertiesMessage);
             return false;
         }
 
-        $width = $info[0];
+        $height = $info[1];
 
-        if ( $width < $constraint->limit )
+        if ( $height < $constraint->limit )
         {
-            $this->setMessage($constraint->widthTooSmallMessage, array(
-                '{{ current }}' => $width,
+            $this->setMessage($constraint->heightTooSmallMessage, array(
+                '{{ current }}' => $height,
                 '{{ limit }}' => $constraint->limit,
             ));
 

@@ -5,11 +5,11 @@ namespace Oryzone\Bundle\ImageValidatorBundle\Validator\Image;
 /**
  * @Annotation
  */
-class MinWidth extends ImageConstraint
+class MinHeight extends ImageConstraint
 {
     public $limit = false;
 
-    public $widthTooSmallMessage = 'Image width is too small. It should have to be at least {{ limit }} px. Current value {{ current }} ppx';
+    public $heightTooSmallMessage = 'Image height is too small. It should have to be at least {{ limit }} px. Current value {{ current }} ppx';
 
     /**
      * {@inheritDoc}

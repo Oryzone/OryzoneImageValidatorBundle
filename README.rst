@@ -12,7 +12,7 @@ Available constraints
 ---------------------
 
 * MinWidth (DONE)
-* MinHeight
+* MinHeight (DONE)
 * MaxWidth
 * MaxHeight
 * Square (DONE)
