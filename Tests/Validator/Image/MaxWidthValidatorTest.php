@@ -2,10 +2,10 @@
 
 namespace Oryzone\Bundle\ImageValidatorBundle\Tests\Validator\Image;
 
-use Oryzone\Bundle\ImageValidatorBundle\Validator\Image\MinWidthValidator;
-use Oryzone\Bundle\ImageValidatorBundle\Validator\Image\MinWidth;
+use Oryzone\Bundle\ImageValidatorBundle\Validator\Image\MaxWidthValidator;
+use Oryzone\Bundle\ImageValidatorBundle\Validator\Image\MaxWidth;
 
-class MinWidthValidatorTest extends \PHPUnit_Framework_TestCase
+class MaxWidthValidatorTest extends \PHPUnit_Framework_TestCase
 {
 
     protected $validator;
@@ -13,26 +13,26 @@ class MinWidthValidatorTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->validator = new MinWidthValidator();
+        $this->validator = new MaxWidthValidator();
         $this->fixturesPath = __DIR__ . '/../../fixtures/';
     }
 
     public function testGoodImage()
     {
         $path = $this->fixturesPath . 'images/landscape-700x441.jpg';
-        $this->assertTrue($this->validator->isValid($path, new MinWidth(array('limit' => 300))));
+        $this->assertTrue($this->validator->isValid($path, new MaxWidth(array('limit' => 800))));
     }
 
     public function testBadImage()
     {
         $path = $this->fixturesPath . 'images/square-200x200.jpg';
-        $this->assertFalse($this->validator->isValid($path, new MinWidth(array('limit' => 300))));
+        $this->assertFalse($this->validator->isValid($path, new MaxWidth(array('limit' => 180))));
     }
 
     public function testLimitCase()
     {
         $path = $this->fixturesPath . 'images/square-200x200.jpg';
-        $this->assertTrue($this->validator->isValid($path, new MinWidth(array('limit' => 200))));
+        $this->assertTrue($this->validator->isValid($path, new MaxWidth(array('limit' => 200))));
     }
 
     /**
@@ -40,7 +40,7 @@ class MinWidthValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testNoLimitParameter()
     {
-        new MinWidth();
+        new MaxWidth();
     }
 
 }

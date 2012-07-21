@@ -29,6 +29,12 @@ class MinHeightValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->validator->isValid($path, new MinHeight(array('limit' => 300))));
     }
 
+    public function testLimitCase()
+    {
+        $path = $this->fixturesPath . 'images/square-200x200.jpg';
+        $this->assertTrue($this->validator->isValid($path, new MinHeight(array('limit' => 200))));
+    }
+
     /**
      * @expectedException Symfony\Component\Validator\Exception\MissingOptionsException
      */

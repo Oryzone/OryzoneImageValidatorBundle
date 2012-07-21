@@ -13,7 +13,7 @@ Available constraints
 
 * MinWidth (DONE)
 * MinHeight (DONE)
-* MaxWidth
+* MaxWidth (DONE)
 * MaxHeight
 * Square (DONE)
 * Landscape (DONE)
