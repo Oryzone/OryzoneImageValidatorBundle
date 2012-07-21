@@ -18,8 +18,8 @@ Available constraints
 * Square (DONE)
 * Landscape (DONE)
 * Portrait (DONE)
-* MinRatio
-* MaxRatio
+* MinRatio (DONE)
+* MaxRatio (DONE)
 
 Work in progress
 ----------------
