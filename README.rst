@@ -14,14 +14,12 @@ Available constraints
 * MinWidth (DONE)
 * MinHeight (DONE)
 * MaxWidth (DONE)
-* MaxHeight
+* MaxHeight (DONE)
 * Square (DONE)
 * Landscape (DONE)
 * Portrait (DONE)
 * MinRatio
 * MaxRatio
-* MinResolution
-* MaxResolution
 
 Work in progress
 ----------------
