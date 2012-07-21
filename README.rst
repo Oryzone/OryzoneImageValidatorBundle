@@ -3,7 +3,13 @@ ImageValidatorBundle
 
 Symfony2 Bundle to validate images.
 
+|TravisCIStatus|_
+
+.. |TravisCIStatus| image:: https://secure.travis-ci.org/Oryzone/OryzoneImageValidatorBundle.png?branch=master
+.. _TravisCIStatus: http://travis-ci.org/Oryzone/OryzoneImageValidatorBundle/
+
 Available constraints
+---------------------
 
 * MinWidth
 * MinHeight
