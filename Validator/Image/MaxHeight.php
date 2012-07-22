@@ -9,7 +9,7 @@ class MaxHeight extends ImageConstraint
 {
     public $limit = false;
 
-    public $heightTooBigMessage = 'Image height is too big. It should have to be {{ limit }} px maximum. Current value {{ current }} px';
+    public $errorMessage = 'Image height is too big. It should have to be {{ limit }} px maximum. Current value {{ current }} px';
 
     /**
      * {@inheritDoc}

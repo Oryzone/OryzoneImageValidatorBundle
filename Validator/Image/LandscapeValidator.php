@@ -30,7 +30,7 @@ class LandscapeValidator extends ImageValidator
 
         if (!$valid)
         {
-            $this->setMessage($constraint->notLandscapeMessage, array(
+            $this->setMessage($constraint->errorMessage, array(
                 '{{ width }}' => $width,
                 '{{ height }}' => $height,
             ));

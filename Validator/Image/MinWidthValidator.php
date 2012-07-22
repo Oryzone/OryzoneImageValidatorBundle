@@ -24,7 +24,7 @@ class MinWidthValidator extends ImageValidator
 
         if ( $width < $constraint->limit )
         {
-            $this->setMessage($constraint->widthTooSmallMessage, array(
+            $this->setMessage($constraint->errorMessage, array(
                 '{{ current }}' => $width,
                 '{{ limit }}' => $constraint->limit,
             ));

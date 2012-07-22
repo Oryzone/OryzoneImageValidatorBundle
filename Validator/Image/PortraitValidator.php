@@ -30,7 +30,7 @@ class PortraitValidator extends ImageValidator
 
         if (!$valid)
         {
-            $this->setMessage($constraint->notPortraitMessage, array(
+            $this->setMessage($constraint->errorMessage, array(
                 '{{ width }}' => $width,
                 '{{ height }}' => $height,
             ));

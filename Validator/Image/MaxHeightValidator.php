@@ -24,7 +24,7 @@ class MaxHeightValidator extends ImageValidator
 
         if ( $height > $constraint->limit )
         {
-            $this->setMessage($constraint->heightTooBigMessage, array(
+            $this->setMessage($constraint->errorMessage, array(
                 '{{ current }}' => $height,
                 '{{ limit }}' => $constraint->limit,
             ));

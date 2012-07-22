@@ -9,7 +9,7 @@ class MinHeight extends ImageConstraint
 {
     public $limit = false;
 
-    public $heightTooSmallMessage = 'Image height is too small. It should have to be at least {{ limit }} px. Current value {{ current }} px';
+    public $errorMessage = 'Image height is too small. It should have to be at least {{ limit }} px. Current value {{ current }} px';
 
     /**
      * {@inheritDoc}

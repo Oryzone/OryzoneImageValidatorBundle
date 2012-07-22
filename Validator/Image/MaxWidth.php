@@ -9,7 +9,7 @@ class MaxWidth extends ImageConstraint
 {
     public $limit = false;
 
-    public $widthTooBigMessage = 'Image width is too big. It should have to be {{ limit }} px maximum. Current value {{ current }} px';
+    public $errorMessage = 'Image width is too big. It should have to be {{ limit }} px maximum. Current value {{ current }} px';
 
     /**
      * {@inheritDoc}

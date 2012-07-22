@@ -27,7 +27,7 @@ class MinRatioValidator extends ImageValidator
 
         if ( $ratio < $constraint->limit )
         {
-            $this->setMessage($constraint->ratioTooSmallMessage, array(
+            $this->setMessage($constraint->errorMessage, array(
                 '{{ current }}' => $ratio,
                 '{{ limit }}' => $constraint->limit,
             ));

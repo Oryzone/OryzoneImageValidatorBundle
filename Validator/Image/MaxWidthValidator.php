@@ -24,7 +24,7 @@ class MaxWidthValidator extends ImageValidator
 
         if ( $width > $constraint->limit )
         {
-            $this->setMessage($constraint->widthTooBigMessage, array(
+            $this->setMessage($constraint->errorMessage, array(
                 '{{ current }}' => $width,
                 '{{ limit }}' => $constraint->limit,
             ));

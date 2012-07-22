@@ -9,7 +9,7 @@ class MinWidth extends ImageConstraint
 {
     public $limit = false;
 
-    public $widthTooSmallMessage = 'Image width is too small. It should have to be at least {{ limit }} px. Current value {{ current }} px';
+    public $errorMessage = 'Image width is too small. It should have to be at least {{ limit }} px. Current value {{ current }} px';
 
     /**
      * {@inheritDoc}

@@ -9,7 +9,7 @@ class Landscape extends ImageConstraint
 {
     public $strict = false;
 
-    public $notLandscapeMessage = 'The image has not landscape proportions. Dimensions: {{ width }} x {{ height }} px';
+    public $errorMessage = 'The image has not landscape proportions. Dimensions: {{ width }} x {{ height }} px';
 
     /**
      * {@inheritDoc}

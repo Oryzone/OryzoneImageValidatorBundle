@@ -9,7 +9,7 @@ class Portrait extends ImageConstraint
 {
     public $strict = false;
 
-    public $notPortraitMessage = 'The image has not portrait proportions. Dimensions: {{ width }} x {{ height }} px';
+    public $errorMessage = 'The image has not portrait proportions. Dimensions: {{ width }} x {{ height }} px';
 
     /**
      * {@inheritDoc}

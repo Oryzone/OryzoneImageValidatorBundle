@@ -7,5 +7,5 @@ namespace Oryzone\Bundle\ImageValidatorBundle\Validator\Image;
  */
 class Square extends ImageConstraint
 {
-    public $notSquareMessage = 'The image is not square. Dimensions: {{ width }} x {{ height }} px';
+    public $errorMessage = 'The image is not square. Dimensions: {{ width }} x {{ height }} px';
 }

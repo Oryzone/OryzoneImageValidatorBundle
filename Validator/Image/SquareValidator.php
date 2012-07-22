@@ -25,7 +25,7 @@ class SquareValidator extends ImageValidator
 
         if ($width != $height)
         {
-            $this->setMessage($constraint->notSquareMessage, array(
+            $this->setMessage($constraint->errorMessage, array(
                 '{{ width }}' => $width,
                 '{{ height }}' => $height,
             ));

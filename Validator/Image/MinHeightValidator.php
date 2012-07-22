@@ -24,7 +24,7 @@ class MinHeightValidator extends ImageValidator
 
         if ( $height < $constraint->limit )
         {
-            $this->setMessage($constraint->heightTooSmallMessage, array(
+            $this->setMessage($constraint->errorMessage, array(
                 '{{ current }}' => $height,
                 '{{ limit }}' => $constraint->limit,
             ));

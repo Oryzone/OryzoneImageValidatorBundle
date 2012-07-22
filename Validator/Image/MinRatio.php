@@ -9,7 +9,7 @@ class MinRatio extends ImageConstraint
 {
     public $limit = false;
 
-    public $ratioTooSmallMessage = 'Image ratio is too small. It should have to be at least {{ limit }}. Current value {{ current }}';
+    public $errorMessage = 'Image ratio is too small. It should have to be at least {{ limit }}. Current value {{ current }}';
 
     /**
      * {@inheritDoc}

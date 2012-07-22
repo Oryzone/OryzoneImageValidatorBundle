@@ -9,7 +9,7 @@ class MaxRatio extends ImageConstraint
 {
     public $limit = false;
 
-    public $ratioTooBigMessage = 'Image ratio is too big. It should have to be at least {{ limit }}. Current value {{ current }}';
+    public $errorMessage = 'Image ratio is too big. It should have to be at least {{ limit }}. Current value {{ current }}';
 
     /**
      * {@inheritDoc}
