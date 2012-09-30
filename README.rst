@@ -24,4 +24,4 @@ Available constraints
 Work in progress
 ----------------
 
-Code and proper documentation will come soon (hopefully). Stay Tuned!
+Proper documentation will come soon (hopefully). Stay Tuned!
