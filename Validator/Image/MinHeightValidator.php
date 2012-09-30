@@ -16,7 +16,7 @@ class MinHeightValidator extends ImageValidator
         $info = getimagesize($this->imagePath);
         if(!$info || !isset($info[1]))
         {
-            $this->setMessage($constraint->cannotReadImagePropertiesMessage);
+            $this->context->addViolation($constraint->cannotReadImagePropertiesMessage, array(), $value);
             return false;
         }
 
@@ -24,10 +24,10 @@ class MinHeightValidator extends ImageValidator
 
         if ( $height < $constraint->limit )
         {
-            $this->setMessage($constraint->errorMessage, array(
+            $this->context->addViolation($constraint->errorMessage, array(
                 '{{ current }}' => $height,
                 '{{ limit }}' => $constraint->limit,
-            ));
+            ), $value);
 
             return false;
         }

@@ -5,34 +5,48 @@ namespace Oryzone\Bundle\ImageValidatorBundle\Tests\Validator\Image;
 use Oryzone\Bundle\ImageValidatorBundle\Validator\Image\MaxWidthValidator;
 use Oryzone\Bundle\ImageValidatorBundle\Validator\Image\MaxWidth;
 
-class MaxWidthValidatorTest extends \PHPUnit_Framework_TestCase
+class MaxWidthValidatorTest extends ImageValidatorTest
 {
 
+    /**
+     * @var MaxWidthValidator $validator
+     */
     protected $validator;
-    protected $fixturesPath;
 
     public function setUp()
     {
+        parent::setup();
         $this->validator = new MaxWidthValidator();
-        $this->fixturesPath = __DIR__ . '/../../fixtures/';
+        $this->validator->initialize($this->context);
     }
 
     public function testGoodImage()
     {
         $path = $this->fixturesPath . 'images/landscape-700x441.jpg';
-        $this->assertTrue($this->validator->isValid($path, new MaxWidth(array('limit' => 800))));
+        $valid = $this->validator->validate($path, new MaxWidth(array('limit' => 800)));
+        $this->assertTrue($valid);
     }
 
     public function testBadImage()
     {
         $path = $this->fixturesPath . 'images/square-200x200.jpg';
-        $this->assertFalse($this->validator->isValid($path, new MaxWidth(array('limit' => 180))));
+
+        $maxWidthConstraint = new MaxWidth(array('limit' => 180));
+
+        $this->context->expects($this->once())
+             ->method('addViolation')
+             ->with($this->equalTo($maxWidthConstraint->errorMessage),
+                $this->equalTo(array('{{ current }}' => 200, '{{ limit }}' => 180)));
+
+        $valid = $this->validator->validate($path, $maxWidthConstraint);
+        $this->assertFalse($valid);
     }
 
     public function testLimitCase()
     {
         $path = $this->fixturesPath . 'images/square-200x200.jpg';
-        $this->assertTrue($this->validator->isValid($path, new MaxWidth(array('limit' => 200))));
+        $valid = $this->validator->validate($path, new MaxWidth(array('limit' => 200)));
+        $this->assertTrue($valid);
     }
 
     /**

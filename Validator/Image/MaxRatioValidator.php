@@ -16,7 +16,7 @@ class MaxRatioValidator extends ImageValidator
         $info = getimagesize($this->imagePath);
         if(!$info || !isset($info[0]) || !isset($info[1]))
         {
-            $this->setMessage($constraint->cannotReadImagePropertiesMessage);
+            $this->context->addViolation($constraint->cannotReadImagePropertiesMessage, array(), $value);
             return false;
         }
 
@@ -27,10 +27,10 @@ class MaxRatioValidator extends ImageValidator
 
         if ( $ratio > $constraint->limit )
         {
-            $this->setMessage($constraint->errorMessage, array(
+            $this->context->addViolation($constraint->errorMessage, array(
                 '{{ current }}' => $ratio,
                 '{{ limit }}' => $constraint->limit,
-            ));
+            ), $value);
 
             return false;
         }

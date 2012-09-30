@@ -11,15 +11,15 @@ Symfony2 Bundle to validate images.
 Available constraints
 ---------------------
 
-* MinWidth (DONE)
-* MinHeight (DONE)
-* MaxWidth (DONE)
-* MaxHeight (DONE)
-* Square (DONE)
-* Landscape (DONE)
-* Portrait (DONE)
-* MinRatio (DONE)
-* MaxRatio (DONE)
+* MinWidth
+* MinHeight
+* MaxWidth
+* MaxHeight
+* Square
+* Landscape
+* Portrait
+* MinRatio
+* MaxRatio
 
 Work in progress
 ----------------

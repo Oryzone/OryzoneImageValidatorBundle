@@ -16,7 +16,7 @@ class SquareValidator extends ImageValidator
         $info = getimagesize($this->imagePath);
         if(!$info || !isset($info[0]) || !isset($info[1]))
         {
-            $this->setMessage($constraint->cannotReadImagePropertiesMessage);
+            $this->context->addViolation($constraint->cannotReadImagePropertiesMessage, array(), $value);
             return false;
         }
 
@@ -25,10 +25,10 @@ class SquareValidator extends ImageValidator
 
         if ($width != $height)
         {
-            $this->setMessage($constraint->errorMessage, array(
+            $this->context->addViolation($constraint->errorMessage, array(
                 '{{ width }}' => $width,
                 '{{ height }}' => $height,
-            ));
+            ), $value);
 
             return false;
         }

@@ -43,15 +43,15 @@ abstract class ImageValidator extends ConstraintValidator
                 case UPLOAD_ERR_INI_SIZE:
                     $maxSize = UploadedFile::getMaxFilesize();
                     $maxSize = $constraint->maxSize ? min($maxSize, $constraint->maxSize) : $maxSize;
-                    $this->setMessage($constraint->uploadIniSizeErrorMessage, array('{{ limit }}' => $maxSize.' bytes'));
+                    $this->context->addViolation($constraint->uploadIniSizeErrorMessage, array('{{ limit }}' => $maxSize.' bytes'), $value);
 
                     return false;
                 case UPLOAD_ERR_FORM_SIZE:
-                    $this->setMessage($constraint->uploadFormSizeErrorMessage);
+                    $this->context->addViolation($constraint->uploadFormSizeErrorMessage, $value);
 
                     return false;
                 default:
-                    $this->setMessage($constraint->uploadErrorMessage);
+                    $this->context->addViolation($constraint->uploadErrorMessage, array(), $value);
 
                     return false;
             }
@@ -64,13 +64,13 @@ abstract class ImageValidator extends ConstraintValidator
         $this->imagePath = $value instanceof FileObject ? $value->getPathname() : (string) $value;
 
         if (!file_exists($this->imagePath)) {
-            $this->setMessage($constraint->notFoundMessage, array('{{ file }}' => $this->imagePath));
+            $this->context->addViolation($constraint->notFoundMessage, array('{{ file }}' => $this->imagePath), $this->imagePath);
 
             return false;
         }
 
         if (!is_readable($this->imagePath)) {
-            $this->setMessage($constraint->notReadableMessage, array('{{ file }}' => $this->imagePath));
+            $this->context->addViolation($constraint->notReadableMessage, array('{{ file }}' => $this->imagePath), $this->imagePath);
 
             return false;
         }

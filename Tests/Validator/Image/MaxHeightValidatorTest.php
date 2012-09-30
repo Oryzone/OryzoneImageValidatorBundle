@@ -5,34 +5,48 @@ namespace Oryzone\Bundle\ImageValidatorBundle\Tests\Validator\Image;
 use Oryzone\Bundle\ImageValidatorBundle\Validator\Image\MaxHeightValidator;
 use Oryzone\Bundle\ImageValidatorBundle\Validator\Image\MaxHeight;
 
-class MaxHeightValidatorTest extends \PHPUnit_Framework_TestCase
+class MaxHeightValidatorTest extends ImageValidatorTest
 {
 
+    /**
+     * @var MaxHeightValidator $validator
+     */
     protected $validator;
-    protected $fixturesPath;
 
     public function setUp()
     {
+        parent::setUp();
         $this->validator = new MaxHeightValidator();
-        $this->fixturesPath = __DIR__ . '/../../fixtures/';
+        $this->validator->initialize($this->context);
     }
 
     public function testGoodImage()
     {
         $path = $this->fixturesPath . 'images/landscape-700x441.jpg';
-        $this->assertTrue($this->validator->isValid($path, new MaxHeight(array('limit' => 800))));
+        $valid = $this->validator->validate($path, new MaxHeight(array('limit' => 800)));
+        $this->assertTrue($valid);
     }
 
     public function testBadImage()
     {
         $path = $this->fixturesPath . 'images/square-200x200.jpg';
-        $this->assertFalse($this->validator->isValid($path, new MaxHeight(array('limit' => 180))));
+
+        $maxHeightConstraint = new MaxHeight(array('limit' => 180));
+
+        $this->context->expects($this->once())
+            ->method('addViolation')
+            ->with($this->equalTo($maxHeightConstraint->errorMessage),
+                $this->equalTo(array('{{ current }}' => 200, '{{ limit }}' => 180)));
+
+        $valid = $this->validator->validate($path, $maxHeightConstraint);
+        $this->assertFalse($valid);
     }
 
     public function testLimitCase()
     {
         $path = $this->fixturesPath . 'images/square-200x200.jpg';
-        $this->assertTrue($this->validator->isValid($path, new MaxHeight(array('limit' => 200))));
+        $valid = $this->validator->validate($path, new MaxHeight(array('limit' => 200)));
+        $this->assertTrue($valid);
     }
 
     /**
