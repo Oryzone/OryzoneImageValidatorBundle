@@ -29,7 +29,7 @@ class SquareValidatorTest extends ImageValidatorTest
 
     public function testNotSquareImage()
     {
-        $path = $this->fixturesPath . 'images/portrait-500x750.jpg';
+        $path = $this->fixturesPath . 'images/portrait-500x750.png';
 
         $squareConstraint = new Square();
 

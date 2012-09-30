@@ -35,7 +35,7 @@ class MinRatioValidatorTest extends ImageValidatorTest
         $this->context->expects($this->once())
              ->method('addViolation')
              ->with($this->equalTo($minRatioConstraint->errorMessage),
-                $this->equalTo(array('{{ current }}' => 200, '{{ limit }}' => 1.1)));
+                $this->equalTo(array('{{ current }}' => 1.0, '{{ limit }}' => 1.1)));
 
         $valid = $this->validator->validate($path, $minRatioConstraint);
         $this->assertFalse($valid);
