@@ -27,5 +27,10 @@
     "autoload": {
         "psr-0": { "Oryzone\\Bundle\\ImageValidatorBundle": "" }
     },
-    "target-dir": "Oryzone/Bundle/ImageValidatorBundle"
+    "target-dir": "Oryzone/Bundle/ImageValidatorBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
